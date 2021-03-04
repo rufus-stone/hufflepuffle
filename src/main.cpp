@@ -13,9 +13,13 @@ int main()
 {
   auto coder = hfl::tree_t{text};
 
-  coder.freqs();
+  coder.freqs(); // Print the char frequencies
 
-  coder.encode();
+  coder.codes(); // Print the Huffman codes for each char
+
+  std::string encoded = coder.encode();
+
+  spdlog::info(encoded);
 
   return EXIT_SUCCESS;
 }
