@@ -75,7 +75,18 @@ list(APPEND CMAKE_PREFIX_PATH ${CMAKE_BINARY_DIR})
 find_package(spdlog REQUIRED)
 
 # Hamarr
-find_package(hamarr CONFIG REQUIRED)
+find_package(hamarr CONFIG)
+if(NOT hamarr_FOUND)
+  message("Failed to find hamarr! Fetching it instead...")
+  include(FetchContent)
+
+  FetchContent_Declare(
+    hamarr
+    GIT_REPOSITORY https://github.com/rufus-stone/hamarr.git
+    GIT_TAG 72b82b76ae8269fb730c918a6e87463b75ac8664)
+
+  FetchContent_MakeAvailable(hamarr)
+endif()
 
 # Link libraries to executable
 target_link_libraries(${PROJECT_NAME} PRIVATE spdlog::spdlog hamarr::hamarr)
