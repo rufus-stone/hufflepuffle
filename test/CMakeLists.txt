@@ -2,7 +2,8 @@ message(STATUS "Building tests...")
 
 add_library(catch_main STATIC catch_main.cpp)
 
-add_executable(${PROJECT_NAME}_tests tests.cpp)
+add_executable(${PROJECT_NAME}_tests tests.cpp
+                                     ${PROJECT_SOURCE_DIR}/src/huffle.cpp)
 
 target_compile_features(${PROJECT_NAME}_tests PRIVATE cxx_std_17)
 
@@ -11,4 +12,5 @@ target_include_directories(${PROJECT_NAME}_tests
                            PRIVATE ${PROJECT_SOURCE_DIR}/include)
 
 # Link libraries to executable
-target_link_libraries(${PROJECT_NAME}_tests PRIVATE CONAN_PKG::spdlog)
+target_link_libraries(${PROJECT_NAME}_tests PRIVATE spdlog::spdlog
+                                                    hamarr::hamarr)

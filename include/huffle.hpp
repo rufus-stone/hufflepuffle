@@ -93,7 +93,7 @@ public:
   void freqs(); // Print the char frequencies
   void codes(); // Print the Huffman codes
 
-  auto encode(bool as_binary = true) -> std::string;
+  auto encode() -> std::string;
   auto decode() -> std::string;
 
   static auto traverse(std::shared_ptr<node_t> const &node, std::string const &str, std::size_t &longest_code, std::unordered_map<char, std::string> &huff_codes)
