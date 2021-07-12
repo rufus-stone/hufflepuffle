@@ -13,18 +13,18 @@ jobs:
       matrix:
         config:
           - {
-              name: ubuntu-gcc-10,
+              name: ubuntu-gcc,
               os: ubuntu-latest,
               build_type: Release,
-              cc: gcc-10,
-              cxx: g++-10,
+              cc: gcc,
+              cxx: g++,
             }
           - {
-              name: ubuntu-clang-9,
+              name: ubuntu-clang,
               os: ubuntu-latest,
               build_type: Release,
-              cc: clang-9,
-              cxx: clang++-9,
+              cc: clang,
+              cxx: clang++,
             }
           - {
               name: windows-latest,
